@@ -39,8 +39,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * Provides the spring bean configuration for the {@link AasRepository} and
@@ -51,47 +49,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 public class AasRepositoryConfiguration {
+	@Bean
+	@ConditionalOnMissingBean
+	public static AasRepository getAasRepository(AasRepositoryFactory aasRepositoryFactory, List<AasRepositoryFeature> features) {
+		return new DecoratedAasRepositoryFactory(aasRepositoryFactory, features).create();
+	}
 
-    /**
-     * Creates and returns an instance of {@link AasRepository} with the provided factory and features.
-     *
-     * @param aasRepositoryFactory the factory to create the AasRepository
-     * @param features the list of features to be applied to the repository
-     * @return the created AasRepository
-     */
-    @Bean
-    @ConditionalOnMissingBean
-    public static AasRepository getAasRepository(AasRepositoryFactory aasRepositoryFactory, List<AasRepositoryFeature> features) {
-        return new DecoratedAasRepositoryFactory(aasRepositoryFactory, features).create();
-    }
-
-    /**
-     * Creates and returns an instance of {@link AasServiceFactory} with the provided factory and features.
-     *
-     * @param aasServiceFactory the factory to create the AasService
-     * @param features the list of features to be applied to the service
-     * @return the created AasServiceFactory
-     */
-    @Primary
-    @Bean
-    public static AasServiceFactory getAasService(AasServiceFactory aasServiceFactory, List<AasServiceFeature> features) {
-        return new DecoratedAasServiceFactory(aasServiceFactory, features);
-    }
-
-    /**
-     * Configures CORS mappings for the application.
-     *
-     * @return the WebMvcConfigurer with the CORS configuration
-     */
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedOrigins("*")
-                        .allowedMethods("*");
-            }
-        };
-    }
+	@Primary
+	@Bean
+	public static AasServiceFactory getAasService(AasServiceFactory aasServiceFactory, List<AasServiceFeature> features) {
+		return new DecoratedAasServiceFactory(aasServiceFactory, features);
+	}
 }
