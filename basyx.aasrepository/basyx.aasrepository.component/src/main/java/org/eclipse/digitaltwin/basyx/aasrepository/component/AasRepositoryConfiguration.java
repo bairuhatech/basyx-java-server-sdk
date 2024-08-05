@@ -39,12 +39,14 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * Provides the spring bean configuration for the {@link AasRepository} and
  * {@link AasService} utilizing all found features for the respective services
  * 
- * @author schnicke
+ * @autor schnicke
  *
  */
 @Configuration
@@ -59,5 +61,17 @@ public class AasRepositoryConfiguration {
 	@Bean
 	public static AasServiceFactory getAasService(AasServiceFactory aasServiceFactory, List<AasServiceFeature> features) {
 		return new DecoratedAasServiceFactory(aasServiceFactory, features);
+	}
+	
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**")
+						.allowedOrigins("*")
+						.allowedMethods("*");
+			}
+		};
 	}
 }
