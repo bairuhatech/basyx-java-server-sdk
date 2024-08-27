@@ -131,6 +131,13 @@ public class AasRepositoryApiHTTPController implements AasRepositoryHTTPApi {
 	}
 
 	@Override
+    public ResponseEntity<Long> getTotalNumberOfShells() {
+        // long totalShells = aasRepository.getTotalNumberOfShells();
+		long totalShells = 10;
+        return new ResponseEntity<>(totalShells, HttpStatus.OK);
+    }
+
+	@Override
 	public ResponseEntity<PagedResult> getAllSubmodelReferencesAasRepository(Base64UrlEncodedIdentifier aasIdentifier, @Min(0) @Valid Integer limit, @Valid Base64UrlEncodedCursor cursor) {
 		if (limit == null) {
 			limit = 100;

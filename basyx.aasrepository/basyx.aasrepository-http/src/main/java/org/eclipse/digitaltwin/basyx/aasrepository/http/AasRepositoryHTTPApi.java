@@ -124,6 +124,10 @@ public interface AasRepositoryHTTPApi {
 					"1" }, minimum = "0")) @Valid @RequestParam(value = "limit", required = false) Integer limit,
 			@Parameter(in = ParameterIn.QUERY, description = "A server-generated identifier retrieved from pagingMetadata that specifies from which position the result listing should continue", schema = @Schema()) @Valid @RequestParam(value = "cursor", required = false) Base64UrlEncodedCursor cursor);
 
+	@Operation(summary = "Get total number of Asset Administration Shells", description = "Returns the total count of Asset Administration Shells in the repository")
+	@ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Long.class)))
+	ResponseEntity<Long> getTotalNumberOfShells();
+
 	@Operation(summary = "Returns all submodel references", description = "", tags = { "Asset Administration Shell Repository API" })
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Requested submodel references", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = GetReferencesResult.class)))),
