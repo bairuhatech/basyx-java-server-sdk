@@ -302,4 +302,11 @@ public class SubmodelRepositoryApiHTTPController implements SubmodelRepositoryHT
 		}
 	}
 
+	@Override
+	public ResponseEntity<Long> getSubmodelCount() {
+		// TODO Auto-generated method stub
+		Long count = repository.getSubmodelCount();
+		throw new UnsupportedOperationException("Unimplemented method 'getSubmodelCount'");
+	}
+
 }

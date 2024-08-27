@@ -272,4 +272,11 @@ public interface SubmodelRepository {
 	 * @param submodelElementList
 	 */
 	public void patchSubmodelElements(String submodelId, List<SubmodelElement> submodelElementList);
+
+	/**
+	 * Returns the count of Submodels in the repository
+	 * 
+	 * @return the count of Submodels
+	 */
+	public long getSubmodelCount();
 }

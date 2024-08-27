@@ -246,4 +246,10 @@ public class ConnectedSubmodelRepository implements SubmodelRepository {
 		getConnectedSubmodelService(submodelId).patchSubmodelElements(submodelElementList);
 	}
 
+	@Override
+	public long getSubmodelCount() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getSubmodelCount'");
+	}
+
 }

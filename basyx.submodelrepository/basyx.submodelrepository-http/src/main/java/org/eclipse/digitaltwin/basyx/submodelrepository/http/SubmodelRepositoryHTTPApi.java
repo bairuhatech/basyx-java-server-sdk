@@ -89,6 +89,18 @@ public interface SubmodelRepositoryHTTPApi {
 					"core" }, defaultValue = "deep")) @Valid @RequestParam(value = "level", required = false, defaultValue = "deep") String level,
 			@Parameter(in = ParameterIn.QUERY, description = "Determines to which extent the resource is being serialized", schema = @Schema(allowableValues = { "withBlobValue",
 					"withoutBlobValue" }, defaultValue = "withoutBlobValue")) @Valid @RequestParam(value = "extent", required = false, defaultValue = "withoutBlobValue") String extent);
+				
+			
+			@Operation(summary = "Returns the count of Submodels", description = "Get the total number of Submodels in the repository", tags = { "Submodel Repository API" })
+			@ApiResponses(value = {
+				@ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Long.class))),
+				@ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Result.class))),
+				@ApiResponse(responseCode = "403", description = "Forbidden", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Result.class))),
+				@ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Result.class)))
+					})
+					@RequestMapping(value = "/submodels/count", produces = { "application/json" }, method = RequestMethod.GET)
+					ResponseEntity<Long> getSubmodelCount();
+
 
 	@Operation(summary = "Returns a specific Submodel", description = "", tags = { "Submodel Repository API" })
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Requested Submodel", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Submodel.class))),

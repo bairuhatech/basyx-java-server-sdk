@@ -332,4 +332,9 @@ public class CrudSubmodelRepository implements SubmodelRepository {
 		submodelBackend.save(submodel);
 	}
 
+	@Override
+	public long getSubmodelCount() {
+		return submodelBackend.count();
+	}
+
 }

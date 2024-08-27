@@ -253,4 +253,10 @@ public class AuthorizedSubmodelRepository implements SubmodelRepository {
 			throw new InsufficientPermissionException("Insufficient Permission: The current subject does not have the required permissions for this operation.");
 	}
 
+	@Override
+	public long getSubmodelCount() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getSubmodelCount'");
+	}
+
 }

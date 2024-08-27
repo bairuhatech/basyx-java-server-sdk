@@ -173,5 +173,11 @@ public class OperationDelegationSubmodelRepository implements SubmodelRepository
 	public void patchSubmodelElements(String submodelId, List<SubmodelElement> submodelElementList) {
 		decorated.patchSubmodelElements(submodelId, submodelElementList);
 	}
+
+	@Override
+	public long getSubmodelCount() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getSubmodelCount'");
+	}
 	
 }
