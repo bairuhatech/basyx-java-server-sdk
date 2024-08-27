@@ -199,4 +199,10 @@ public class ConnectedAasRepository implements AasRepository {
 		return e;
 	}
 
+	@Override
+	public long getTotalNumberOfShells() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getTotalNumberOfShells'");
+	}
+
 }

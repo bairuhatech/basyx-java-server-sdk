@@ -192,4 +192,10 @@ public class AuthorizedAasRepository implements AasRepository {
 			throw new InsufficientPermissionException("Insufficient Permission: The current subject does not have the required permissions for this operation.");
 	}
 
+	@Override
+	public long getTotalNumberOfShells() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getTotalNumberOfShells'");
+	}
+
 }
