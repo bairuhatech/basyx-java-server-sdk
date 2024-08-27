@@ -190,4 +190,11 @@ public class MqttAasRepository implements AasRepository {
 		decorated.deleteThumbnail(aasId);
 	}
 
+	@Override
+	public long getTotalNumberOfShells() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+
 }
