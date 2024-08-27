@@ -214,4 +214,10 @@ public class RegistryIntegrationSubmodelRepository implements SubmodelRepository
 		decorated.patchSubmodelElements(submodelId, submodelElementList);
 	}
 
+	@Override
+	public long getSubmodelCount() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getSubmodelCount'");
+	}
+
 }
