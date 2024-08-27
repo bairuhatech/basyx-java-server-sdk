@@ -176,8 +176,7 @@ public class OperationDelegationSubmodelRepository implements SubmodelRepository
 
 	@Override
 	public long getSubmodelCount() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getSubmodelCount'");
+		return decorated.getSubmodelCount();
 	}
 	
 }
