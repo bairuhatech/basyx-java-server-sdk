@@ -126,7 +126,8 @@ public interface AasRepositoryHTTPApi {
 
 	@Operation(summary = "Get total number of Asset Administration Shells", description = "Returns the total count of Asset Administration Shells in the repository")
 	@ApiResponse(responseCode = "200", description = "Successful operation", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Long.class)))
-	ResponseEntity<Long> getTotalNumberOfShells();
+	@RequestMapping(value = "/shells/count", method = RequestMethod.GET, produces = "application/json")
+			ResponseEntity<Long> getTotalNumberOfShells();
 
 	@Operation(summary = "Returns all submodel references", description = "", tags = { "Asset Administration Shell Repository API" })
 	@ApiResponses(value = {
