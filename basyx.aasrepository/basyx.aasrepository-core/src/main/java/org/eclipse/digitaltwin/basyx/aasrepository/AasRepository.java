@@ -166,5 +166,6 @@ public interface AasRepository {
 	public default String getName() {
 		return "aas-repo";
 	}
-	
+
+	public long getTotalNumberOfShells();
 }

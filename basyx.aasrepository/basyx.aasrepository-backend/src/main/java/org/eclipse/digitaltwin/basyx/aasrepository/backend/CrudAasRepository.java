@@ -75,6 +75,7 @@ public class CrudAasRepository implements AasRepository {
 
 	@Override
 	public CursorResult<List<AssetAdministrationShell>> getAllAas(PaginationInfo pInfo) {
+		System.out.println("==========================  CrudAasRepository ");
 
 		Iterable<AssetAdministrationShell> iterable = aasBackend.findAll();
 		List<AssetAdministrationShell> allAas = StreamSupport.stream(iterable.spliterator(), false).collect(Collectors.toList());
@@ -84,6 +85,11 @@ public class CrudAasRepository implements AasRepository {
 		PaginationSupport<AssetAdministrationShell> paginationSupport = new PaginationSupport<>(aasMap, AssetAdministrationShell::getId);
 
 		return paginationSupport.getPaged(pInfo);
+	}
+	
+	@Override
+	public long getTotalNumberOfShells() {
+		return aasBackend.count();
 	}
 
 	@Override

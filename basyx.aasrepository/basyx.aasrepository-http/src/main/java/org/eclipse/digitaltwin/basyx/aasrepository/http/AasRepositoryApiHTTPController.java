@@ -132,8 +132,8 @@ public class AasRepositoryApiHTTPController implements AasRepositoryHTTPApi {
 
 	@Override
     public ResponseEntity<Long> getTotalNumberOfShells() {
-        // long totalShells = aasRepository.getTotalNumberOfShells();
-		long totalShells = 10;
+        long totalShells = aasRepository.getTotalNumberOfShells();
+		// long totalShells = 10;
         return new ResponseEntity<>(totalShells, HttpStatus.OK);
     }
 

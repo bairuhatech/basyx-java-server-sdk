@@ -78,6 +78,7 @@ public class ConnectedAasRepository implements AasRepository {
 
 	@Override
 	public CursorResult<List<AssetAdministrationShell>> getAllAas(PaginationInfo pInfo) {
+		System.out.println("==========================  ConnectedAasRepository ");
 		String encodedCursor = pInfo.getCursor() == null ? null : Base64UrlEncoder.encode(pInfo.getCursor());
 		return repoApi.getAllAssetAdministrationShells(null, null, pInfo.getLimit(), encodedCursor);
 	}

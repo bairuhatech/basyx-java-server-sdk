@@ -68,6 +68,7 @@ public class MqttAasRepository implements AasRepository {
 
 	@Override
 	public CursorResult<List<AssetAdministrationShell>> getAllAas(PaginationInfo pInfo) {
+		System.out.println("==========================  MqttAasRepository ");
 		return decorated.getAllAas(pInfo);
 	}
 

@@ -67,6 +67,7 @@ public class RegistryIntegrationAasRepository implements AasRepository {
 
 	@Override
 	public CursorResult<List<AssetAdministrationShell>> getAllAas(PaginationInfo pInfo) {
+		System.out.println("==========================  RegistryIntegrationAasRepository ");
 		return decorated.getAllAas(pInfo);
 	}
 

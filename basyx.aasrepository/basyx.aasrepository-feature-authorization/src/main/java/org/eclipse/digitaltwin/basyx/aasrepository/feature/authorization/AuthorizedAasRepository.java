@@ -62,6 +62,7 @@ public class AuthorizedAasRepository implements AasRepository {
 
 	@Override
 	public CursorResult<List<AssetAdministrationShell>> getAllAas(PaginationInfo pInfo) {
+		System.out.println("==========================  AuthorizedAasRepository ");
 		boolean isAuthorized = permissionResolver.hasPermission(Action.READ, new AasTargetInformation(getIdAsList("*")));
 		
 		throwExceptionIfInsufficientPermission(isAuthorized);
