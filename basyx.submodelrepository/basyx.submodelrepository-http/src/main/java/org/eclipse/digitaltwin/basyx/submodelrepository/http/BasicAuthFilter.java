@@ -14,8 +14,8 @@ import java.util.Base64;
 @Component
 public class BasicAuthFilter extends OncePerRequestFilter {
 
-    private static final String USERNAME = "admin";
-    private static final String PASSWORD = "123";
+    private static final String USERNAME = "dtadminuser";
+    private static final String PASSWORD = "DtAdminUser@2024";
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
